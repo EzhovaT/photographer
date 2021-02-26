@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ivanova</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.min.css" />
+  </head>
+  <body>
+    <section class="header-section">
+      <header class="header">
+        <div class="header-logo">
+          <a class="header-logo__text" href="../index.html"> -Ivanova- </a>
+        </div>
+        <nav class="header-nav">
+          <button
+            class="nav-btn"
+            type="button"
+            aria-expanded="false"
+            aria-controls="nav__list"
+          >
+            <svg
+              class="nav-btn__icon"
+              aria-hidden="true"
+              width="32"
+              height="32"
+            >
+              <use
+                class="nav-btn__icon-menu"
+                href="../images/sprite.svg#menu"
+              ></use>
+              <use
+                class="nav-btn__icon-cross"
+                href="../images/sprite.svg#cross"
+              ></use>
+            </svg>
+          </button>
+          <ul class="nav-list" id="nav__list">
+            <li class="nav-list__link"><a href="portfolio.html">Портфолио</a></li>
+            <li class="nav-list__link"><a href="contacts.html">Обо мне</a></li>
+            <li class="nav-list__link"><a href="price.html">Стоимость</a></li>
+            <li class="nav-list__link"><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-phone">
+          <a href="tel:+8 800 500-61-05 ">8 800 500-61-05 </a>
+        </div>
+      </header>
+    </section>
+
+    <section class="portfolio-section">
+      <div class="container portfolio">
+        <div class="portfolio-header">
+          <h2 class="portfolio-title">Портфолио</h2>
+        </div>
+
+        <div class="portfolio-content">
+          <div class="portfolio-content__card">
+            <img
+              class="portfolio-content__img"
+              src="../images/animal.jpg"
+              alt="foto_ivanova"
+            />
+            <p class="portfolio-content__name">
+              Фотосессия с вашими любимыми питомцами
+            </p>
+          </div>
+          <div class="portfolio-content__card">
+            <img
+              class="portfolio-content__img"
+              src="../images/family.jpg"
+              alt="foto_ivanova"
+            />
+            <p class="portfolio-content__name">Семейная Фотосессия</p>
+          </div>
+          <div class="portfolio-content__card">
+            <img
+              class="portfolio-content__img"
+              src="../images/portrait.jpg"
+              alt="foto_ivanova"
+            />
+            <p class="portfolio-content__name">Портретная Фотосессия</p>
+          </div>
+          <div class="portfolio-content__card">
+            <img class="portfolio-content__img" src="../images/portf.jpg" alt="foto_ivanova" />
+            <p class="portfolio-content__name">
+              Фото контент для ваших социальных сетей
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="download-section">
+      <div class="download">
+        <div class="download-foto">
+          <img class="download-foto__img" src="../images/morning.jpg" alt="foto_ivanova" />
+        </div>
+        <div class="download-text">
+          <p class="download-title">Подробное портфолио</p>
+          <p class="download-descr">
+            С описанием задач заказчика, полного процесса работы и финальным
+            результатом
+          </p>
+          <p class="download-link">
+            <a href="https://disk.yandex.ru/" target="_blank"> Скачать в pdf </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer" id="footer">
+      <div class="container">
+        <div class="footer-head">
+          <h2 class="footer__title"> Свяжитесь со мной </h2>
+        </div>
+        <div class="footer-content">
+          <div class="footer__link">
+            <p class="footer__link-name">Skype</p>
+            <a class="footer__link-text" href="https://www.skype.com/ru/" target="_blank">ivanova.galina</a>
+          </div>
+
+          <div class="footer__link">
+            <p class="footer__link-name">E-mail</p>
+            <a class="footer__link-text" href="mailto:ivanova@gmail.com" target="_blank">ivanova@gmail.com</a>
+          </div>
+
+          <div class="footer__link">
+            <p class="footer__link-name">Phone</p>
+            <a class="footer__link-text" href="tel:+79136677737">+ 7 913 66 77 737</a>
+          </div>
+        </div>
+        <div class="footer-icons">
+          <a class="footer__icon" href="https://ru-ru.facebook.com/" target="_blank"><img src="../images/facebook.svg" alt="facebook"></a>
+          <a class="footer__icon" href="https://www.instagram.com/?hl=ru" target="_blank"><img src="../images/instagram.svg" alt="instagram"></a>
+          <a class="footer__icon" href="https://vk.com/" target="_blank"><img src="../images/vk.svg" alt="vk"></a>
+          <a class="footer__icon" href="https://www.pinterest.ru/" target="_blank"><img src="../images/pinterest.svg" alt="pinterest"></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/main.min.js"></script>
+  </body>
+</html>

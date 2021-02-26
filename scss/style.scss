@@ -1,0 +1,808 @@
+@import "../../node_modules/normalize.css/normalize";
+
+//переменные
+$main-color: rgba(190, 156, 214, 1);
+$main-color_light: rgb(249, 247, 253);
+$block-color_dark: rgba(219, 202, 255, 0.171);
+$text-color: #212021;
+$text-color_opacity: #5f5f5f88;
+$text-color_light: #d1cece;
+
+//шаблоны
+%text-ligth {
+  color: $text-color;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+%text-title {
+  font-size: 36px;
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+%text-link {
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $text-color;
+  border-bottom: 3px solid $text-color;
+  padding-right: 15px;
+  padding-bottom: 5px;
+}
+%text-usual {
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #1d1c1c;
+}
+%text-foto-name {
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: bold;
+  color: #1d1c1c;
+}
+%text-price {
+  font-size: 24px;
+line-height: 29px;
+font-weight: 400;
+color: #8eb574;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  color: $text-color;
+  font-size: 18px;
+}
+.container {
+  max-width: 1200px;
+  margin: auto;
+  @media screen and (max-width: 768px) {
+    width: auto;
+  }
+}
+
+//header
+.header {
+  display: grid;
+  grid-template-columns: min-content 1fr 1fr;
+  align-items: center;
+  position: relative;
+
+  &-section {
+    background-color: $block-color_dark;
+    @media screen and (max-width: 768px) {
+      background-image: linear-gradient(rgba(248, 231, 255, 0.377)),
+        url(../images/pexels-jill-wellington-3776950.jpg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 150% 0;
+      z-index: -5;
+    }
+    @media screen and (max-width: 376px) {
+      background-image: none;
+    }
+
+    &__bg {
+      max-width: 640px;
+      max-height: 571px;
+      opacity: 0.8;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: -2;
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+  &-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    width: 254px;
+    height: 76px;
+    margin-right: 80px;
+    background: linear-gradient(0deg, $main-color 37%, $main-color_light 88%);
+    @media screen and (max-width: 768px) {
+      width: 200px;
+      height: 60px;
+    }
+    @media screen and (max-width: 376px) {
+      width: 112px;
+      height: 38px;
+    }
+
+    &__text {
+      font-size: 20px;
+      text-transform: uppercase;
+    text-decoration: none;
+      color: #fff;
+      line-height: 1.2;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      @media screen and (max-width: 376px) {
+        font-size: 10px;
+      }
+    }
+  }
+  &-phone {
+    max-width: 130px;
+    justify-self: center;
+    & > a {
+      text-decoration: none;
+      @extend %text-ligth;
+      @media screen and (max-width: 768px) {
+        font-size: 12px;
+      }
+      @media screen and (max-width: 376px) {
+        display: none;
+      }
+    }
+  }
+  //navigation menu
+  &-nav {
+    @media screen and (max-width: 376px) {
+      background-color: $main-color_light;
+      display: grid;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 2;
+    }
+  }
+}
+
+//кнопка меню
+.nav-btn {
+  display: none;
+  @media screen and (max-width: 768px), (max-width: 376px) {
+    display: block;
+    position: relative;
+    justify-self: end;
+    padding: 0;
+    margin-right: 15px;
+    border: none;
+    background-color: transparent;
+    z-index: 4;
+    &__icon {
+      stroke: black;
+      fill: black;
+      &-menu {
+        display: block;
+      }
+      &-cross {
+        display: none;
+      }
+    }
+  }
+}
+/* иконки в кнопке меню */
+.nav-btn__open .nav-btn__icon-cross {
+  display: block;
+}
+.nav-btn__open .nav-btn__icon-menu {
+  display: none;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media screen and (max-width: 768px) {
+    display: none;
+    position: absolute;
+    background-color: $main-color_light;
+    padding-top: 90px;
+    width: 100%;
+    left: 0px;
+    top: -1px;
+    z-index: 3;
+    &__open {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  @media screen and (max-width: 376px) {
+    display: none;
+    position: relative;
+    padding-top: 20px;
+    &__open {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__link {
+    min-width: 70px;
+    list-style-type: none;
+    text-decoration: none;
+    &:first-child {
+      display: none;
+    }
+    & > a {
+      text-decoration: none;
+      @extend %text-ligth;
+    }
+    @media screen and (max-width: 768px), (max-width: 376px) {
+      &:first-child {
+        display: block;
+      }
+      list-style-type: none;
+      padding-bottom: 20px;
+      margin: auto;
+      & > a {
+        text-decoration: none;
+        font-size: 24px;
+        color: $text-color;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        &:focus {
+          text-decoration: underline 5px;
+          text-decoration-color: $main-color;
+        }
+      }
+    }
+  }
+}
+
+.header-content {
+  padding-top: 70px;
+  position: relative;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  @media screen and (max-width: 376px) {
+    display: flex;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.content-text {
+  padding-left: 20px;
+  @media screen and (max-width: 625px) {
+    width: 150px;
+  }
+  @media screen and (max-width: 376px) {
+    position: absolute;
+    padding-top: 50px;
+    z-index: 1;
+    color: $text-color_light;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+  }
+
+  &__title {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 48px;
+    line-height: 1.2;
+    font-weight: 400;
+    @media screen and (max-width: 768px) {
+      font-size: 38px;
+      padding: 0;
+    }
+    @media screen and (max-width: 625px) {
+      font-size: 30px;
+    }
+  }
+
+  &__block {
+    color: $text-color_light;
+    margin-top: 10px;
+  }
+  &__descr {
+    max-width: 300px;
+    padding: 10px 0;
+    @extend %text-ligth;
+    @media screen and (max-width: 376px) {
+      color: $text-color_light;
+      padding: 0;
+    }
+    @media screen and (max-width: 625px) {
+      font-size: 16px;
+    }
+  }
+  &__link {
+    @extend %text-link;
+    @media screen and (max-width: 376px) {
+      color: $text-color_light;
+      border-bottom: 3px solid $text-color_light;
+    }
+    @media screen and (max-width: 625px) {
+      font-size: 14px;
+    }
+  }
+  &__block2 {
+    padding: 15px 0;
+  }
+}
+
+.content-foto {
+  max-width: 340px;
+  max-height: 425px;
+  position: relative;
+  @media screen and (max-width: 768px) {
+    max-width: 240px;
+    max-height: 325px;
+    z-index: 0;
+  }
+  @media screen and (max-width: 625px) {
+    max-width: 220px;
+    max-height: 305px;
+  }
+  @media screen and (max-width: 376px) {
+    max-width: 376px;
+    max-height: 425px;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(0, 0, 0);
+      opacity: 0.5;
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: -44px;
+    right: -44px;
+    width: 345px;
+    height: 430px;
+    border: 5px solid red;
+    z-index: -1;
+    @media screen and (max-width: 768px) {
+      max-width: 245px;
+      max-height: 330px;
+    }
+    @media screen and (max-width: 625px) {
+      display: none;
+    }
+  }
+  &__main {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+//portfolio
+.portfolio {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-header {
+    padding: 20px;
+  }
+  &-title {
+    @extend %text-title;
+  }
+
+  &-content {
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 15px;
+    @media screen and (max-width: 625px) {
+      display: flex;
+      flex-direction: column;
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+    &__card {
+      display: grid;
+      align-self: center;
+      max-width: 355px;
+      @media screen and (max-width: 625px) {
+        padding-bottom: 40px;
+      }
+      &:first-child {
+        grid-row: 1/3;
+      }
+      &:last-child {
+        grid-column-start: 3;
+        grid-row: 1/3;
+      }
+    }
+    &__img {
+      max-width: 100%;
+      min-height: 400px;
+      object-fit: cover;
+    }
+    &__name {
+      padding: 15px 10px;
+      @extend %text-foto-name;
+      @media screen and (max-width: 768px) {
+        font-size: 16px;
+        padding-top: 10px;
+      }
+    }
+  }
+}
+
+//block download
+.download {
+  padding-top: 50px;
+  padding-right: 10px;
+  background-color: $block-color_dark;
+  display: flex;
+  align-items: center;
+  @media screen and (max-width: 376px) {
+    padding-top: 0;
+  }
+  &-foto {
+    padding: 80px 0;
+    max-width: 605px;
+    position: relative;
+    @media screen and (max-width: 376px) {
+      max-width: 375px;
+      padding: 0;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0, 0, 0);
+        opacity: 0.5;
+      }
+    }
+    &__img {
+      width: 100%;
+    }
+  }
+  &-text {
+    position: relative;
+    max-width: 450px;
+    min-height: 220px;
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    @media screen and (max-width: 376px) {
+      position: absolute;
+      color: $text-color_light;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -24px;
+      right: 0px;
+      width: calc(100% + 100px);
+      height: calc(100% + 150px);
+      border: 5px solid red;
+      z-index: -1;
+      @media screen and (max-width: 768px) {
+        bottom: -74px;
+      }
+      @media screen and (max-width: 625px) {
+        width: calc(100% + 60px);
+        height: calc(100% + 70px);
+        bottom: -34px;
+      }
+      @media screen and (max-width: 376px) {
+        display: none;
+      }
+    }
+  }
+  &-title {
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: bold;
+    @media screen and (max-width: 768px) {
+      font-size: 24px;
+    }
+  }
+  &-descr {
+    max-width: 350px;
+    @extend %text-usual;
+    @media screen and (max-width: 768px) {
+      font-size: 14px;
+    }
+    @media screen and (max-width: 376px) {
+      color: $text-color_light;
+      max-width: 250px;
+    }
+  }
+  &-link {
+    position: relative;
+    min-width: 145px;
+    &::before {
+      content: url(../images/pdf.svg);
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      left: 155px;
+      @media screen and (max-width: 768px) {
+        left: 130px;
+      }
+    }
+  }
+  &-link > a {
+    @extend %text-link;
+    @media screen and (max-width: 768px) {
+      font-size: 14px;
+    }
+    @media screen and (max-width: 376px) {
+      color: $text-color_light;
+      border-bottom: 3px solid $text-color_light;
+    }
+  }
+}
+
+//block about
+.about {
+  display: flex;
+  flex-direction: column;
+  padding: 80px 10px;
+
+  &-header {
+    display: flex;
+    align-self: center;
+  }
+  &__title {
+    @extend %text-title;
+  }
+
+  &-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 80px 1fr 1fr;
+    grid-column-gap: 15px;
+    align-items: center;
+    @media screen and (max-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media screen and (max-width: 376px) {
+      grid-template-rows: 80px repeat (3, 1fr);
+    }
+  }
+
+  &-foto {
+    width: 300px;
+    height: 430px;
+    &-right {
+      grid-column: 2/3;
+      grid-row: 2/4;
+    }
+    &-left {
+      grid-column: 1/2;
+      grid-row: 1/4;
+    }
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &-text {
+    max-height: 250px;
+    overflow: hidden;
+    grid-column: 3/4;
+    grid-row: 2/3;
+    align-self: center;
+    @media screen and (max-width: 768px) {
+      grid-column: 1/2;
+      grid-row: 4/5;
+    }
+    @media screen and (max-width: 376px) {
+      grid-column: 1/4;
+    }
+  }
+
+  &-contacts {
+    padding-bottom: 15px;
+    grid-row: 3/4;
+    grid-column: 3/4;
+    align-self: stretch;
+    @media screen and (max-width: 768px) {
+      grid-column: 2/3;
+      grid-row: 4/5;
+      align-self: center;
+    }
+    @media screen and (max-width: 376px) {
+      grid-column: 1/4;
+      grid-row: 5/6;
+    }
+  }
+
+  &__descr {
+    @extend %text-usual;
+    padding: 10px 0;
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
+  }
+
+  &__mail,
+  &__phone {
+    padding-bottom: 10px;
+    & > a {
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      color: $text-color;
+    }
+  }
+
+  &__link > a {
+    @extend %text-link;
+  }
+}
+
+
+//block price
+.price-section{
+  background-color: $block-color_dark;
+}
+
+.price{
+  padding: 80px 0;
+  &-header {
+    display: flex;
+    justify-content: center;
+  }
+  &__title{
+    @extend %text-title;
+  }
+
+  &-card{
+    max-width: 347px;
+    @media screen and (max-width: 376px) {
+      padding: 40px 0;
+    }
+  }
+  &-foto{
+    max-width: 100%;
+  }
+  &__img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &-content{
+    padding: 50px 10px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 80px 1fr;
+    @media screen and (max-width: 376px) {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &-card{
+    grid-row: 2/3;
+    &__main{
+      grid-row: 1/3;
+    }
+    @media screen and (max-width: 376px) {
+      padding-top: 30px;
+    }
+  }
+
+  &__name{
+    @extend %text-price;
+    text-align: center;
+    padding-top: 10px;
+    &>span{
+      font-size: 18px;
+      @media screen and (max-width: 625px) {
+        font-size: 16px;
+      }
+      @media screen and (max-width: 376px) {
+        font-size: 18px;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      font-size: 18px;
+    }
+    @media screen and (max-width: 625px) {
+      font-size: 16px;
+    }
+    @media screen and (max-width: 376px) {
+      font-size: 18px;
+      padding: 0;
+    }
+  }
+  &__text{
+    @extend %text-usual;
+    text-align: center;
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
+    @media screen and (max-width: 625px) {
+      font-size: 12px;
+    }
+    @media screen and (max-width: 376px) {
+      font-size: 16px;
+    }
+  }
+}
+
+//block footer
+.footer{
+  padding: 80px 0;
+
+  @media screen and (max-width: 376px) {
+    padding: 40px 0;
+  }
+  &-head{
+    display: flex;
+    justify-content: center;
+  }
+  &__title{
+    @extend %text-title;
+    @media screen and (max-width: 376px) {
+      font-size: 26px;
+    }
+  }
+  &-content{
+    max-width: 816px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 0;
+    @media screen and (max-width: 768px) {
+      flex-wrap: wrap;
+      padding-top: 30px;
+    }
+  }
+  &__link{
+    display: flex;
+    padding-top: 10px;
+    &-name{
+      @extend %text-ligth;
+      opacity: 0.9;
+      position: relative;
+      &::before{
+        content: url(../images/links.svg);
+        width: 21px;
+        height: 16px;
+        position: absolute;
+        right: -29px;
+      }
+    }
+    &-text{
+      padding-left: 30px;
+      @extend %text-ligth;
+      opacity: 0.9;
+      text-decoration: none;
+    }
+  }
+  &-icons{
+    max-width: 272px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around ;
+  }
+  &__icon > img{
+    width: 34px;
+    height: 34px;
+  }
+}
