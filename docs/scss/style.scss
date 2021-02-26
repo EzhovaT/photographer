@@ -60,6 +60,11 @@ color: #8eb574;
   margin: 0;
 }
 
+#shadow-root {
+  display: block;
+  mask-mode: open;
+}
+
 body {
   font-family: "Source Sans Pro", sans-serif;
   color: $text-color;
@@ -173,29 +178,76 @@ body {
     display: block;
     position: relative;
     justify-self: end;
+    cursor: pointer;
+    width: 30px;
+    height: 33px;
     padding: 0;
     margin-right: 15px;
     border: none;
     background-color: transparent;
     z-index: 4;
-    &__icon {
-      stroke: black;
-      fill: black;
-      &-menu {
-        display: block;
+    &__line{
+      display: block;
+      position: absolute;
+      top: 15px;
+      left: 0px;
+      right: 18px;
+      height: 3px;
+      width: 100%;
+      background: rgb(24, 22, 22);
+      &:before, &::after{
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: rgb(24, 23, 23);
       }
-      &-cross {
-        display: none;
+      &:before{
+        top: -8px;
+      }
+      &::after{
+        bottom: -8px;
       }
     }
   }
 }
-/* иконки в кнопке меню */
-.nav-btn__open .nav-btn__icon-cross {
-  display: block;
+
+
+/* трансформация верхней линии */
+.nav-btn__line{
+  &:before{
+    transition-duration: 0.3s, 0.3s;
+    transition-delay: 0.3s, 0s;
+    transition-property: top, transform;
+  }
 }
-.nav-btn__open .nav-btn__icon-menu {
-  display: none;
+
+/* трансформация нижней линиb */
+.nav-btn__line {
+  &:after{
+    transition-duration: 0.3s, 0.3s;
+    transition-delay: 0.3s, 0s;
+    transition-property: bottom, transform;
+  }
+}
+
+/* трансформация линий */
+.nav-btn__open{
+  & span{
+    background: none;
+    &::before{
+      top: 0;
+      transform: rotate(-45deg);
+      transition-delay: 0s, 0.3s;
+    }
+    &::after{
+      bottom: 0;
+      transform: rotate(45deg);
+      transition-delay: 0s, 0.3s;
+    }
+}
 }
 
 .nav-list {

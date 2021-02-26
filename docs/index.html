@@ -25,27 +25,21 @@
             aria-expanded="false"
             aria-controls="nav__list"
           >
-            <svg
-              class="nav-btn__icon"
-              aria-hidden="true"
-              width="32"
-              height="32"
-            >
-              <use
-                class="nav-btn__icon-menu"
-                href="images/sprite.svg#menu"
-              ></use>
-              <use
-                class="nav-btn__icon-cross"
-                href="images/sprite.svg#cross"
-              ></use>
-            </svg>
+            <span class="nav-btn__line"></span>
           </button>
           <ul class="nav-list" id="nav__list">
-            <li class="nav-list__link"><a href="pages/portfolio.html">Портфолио</a></li>
-            <li class="nav-list__link"><a href="pages/contacts.html">Обо мне</a></li>
-            <li class="nav-list__link"><a href="pages/price.html">Стоимость</a></li>
-            <li class="nav-list__link"><a href="pages/contacts.html">Контакты</a></li>
+            <li class="nav-list__link">
+              <a href="pages/portfolio.html">Портфолио</a>
+            </li>
+            <li class="nav-list__link">
+              <a href="pages/contacts.html">Обо мне</a>
+            </li>
+            <li class="nav-list__link">
+              <a href="pages/price.html">Стоимость</a>
+            </li>
+            <li class="nav-list__link">
+              <a href="pages/contacts.html">Контакты</a>
+            </li>
           </ul>
         </nav>
 
@@ -63,7 +57,9 @@
                 Фотограф и стилист в Москве и Московской области
               </p>
               <p class="content-text__block2">
-                <a class="content-text__link" href="pages/portfolio.html">Портфолио</a>
+                <a class="content-text__link" href="pages/portfolio.html"
+                  >Портфолио</a
+                >
               </p>
             </div>
           </div>
@@ -119,7 +115,11 @@
             <p class="portfolio-content__name">Портретная Фотосессия</p>
           </div>
           <div class="portfolio-content__card">
-            <img class="portfolio-content__img" src="images/portf.jpg" alt="foto_ivanova" />
+            <img
+              class="portfolio-content__img"
+              src="images/portf.jpg"
+              alt="foto_ivanova"
+            />
             <p class="portfolio-content__name">
               Фото контент для ваших социальных сетей
             </p>
@@ -131,7 +131,11 @@
     <section class="download-section">
       <div class="download">
         <div class="download-foto">
-          <img class="download-foto__img" src="images/morning.jpg" alt="foto_ivanova" />
+          <img
+            class="download-foto__img"
+            src="images/morning.jpg"
+            alt="foto_ivanova"
+          />
         </div>
         <div class="download-text">
           <p class="download-title">Подробное портфолио</p>
@@ -140,7 +144,9 @@
             результатом
           </p>
           <p class="download-link">
-            <a href="https://disk.yandex.ru/" target="_blank"> Скачать в pdf </a>
+            <a href="https://disk.yandex.ru/" target="_blank">
+              Скачать в pdf
+            </a>
           </p>
         </div>
       </div>
@@ -155,10 +161,18 @@
 
           <div class="about-content">
             <div class="about-foto-left">
-              <img class="about__img" src="images/about1.jpg" alt="foto_ivanova" />
+              <img
+                class="about__img"
+                src="images/about1.jpg"
+                alt="foto_ivanova"
+              />
             </div>
             <div class="about-foto-right">
-              <img class="about__img" src="images/about2.jpg" alt="foto_ivanova" />
+              <img
+                class="about__img"
+                src="images/about2.jpg"
+                alt="foto_ivanova"
+              />
             </div>
 
             <div class="about-text">
@@ -177,7 +191,9 @@
 
             <div class="about-contacts">
               <p class="about__mail">
-                <a href="mailto:ivanova@gmail.com"> E-mail: ivanova@gmail.com </a>
+                <a href="mailto:ivanova@gmail.com">
+                  E-mail: ivanova@gmail.com
+                </a>
               </p>
               <p class="about__phone">
                 <a href="tel:+79776677888"> Phone: + 7 977 66 77 888 </a>
@@ -200,7 +216,11 @@
           <div class="price-content">
             <div class="price-card">
               <div class="price-foto">
-                <img class="price__img" src="images/portrait.jpg" alt="foto_ivanova" />
+                <img
+                  class="price__img"
+                  src="images/portrait.jpg"
+                  alt="foto_ivanova"
+                />
               </div>
               <p class="price__name">
                 4 часов съемки <br />
@@ -215,7 +235,11 @@
 
             <div class="price-card price-card__main">
               <div class="price-foto">
-                <img class="price__img" src="images/animal.jpg" alt="foto_ivanova" />
+                <img
+                  class="price__img"
+                  src="images/animal.jpg"
+                  alt="foto_ivanova"
+                />
               </div>
               <p class="price__name">
                 12 часов съемки <br />
@@ -230,7 +254,11 @@
 
             <div class="price-card">
               <div class="price-foto">
-                <img class="price__img" src="images/about1.jpg" alt="foto_ivanova" />
+                <img
+                  class="price__img"
+                  src="images/about1.jpg"
+                  alt="foto_ivanova"
+                />
               </div>
               <p class="price__name">
                 1 часов съемки <br />
@@ -250,29 +278,58 @@
     <footer class="footer" id="footer">
       <div class="container">
         <div class="footer-head">
-          <h2 class="footer__title"> Свяжитесь со мной </h2>
+          <h2 class="footer__title">Свяжитесь со мной</h2>
         </div>
         <div class="footer-content">
           <div class="footer__link">
             <p class="footer__link-name">Skype</p>
-            <a class="footer__link-text" href="https://www.skype.com/ru/" target="_blank">ivanova.galina</a>
+            <a
+              class="footer__link-text"
+              href="https://www.skype.com/ru/"
+              target="_blank"
+              >ivanova.galina</a
+            >
           </div>
 
           <div class="footer__link">
             <p class="footer__link-name">E-mail</p>
-            <a class="footer__link-text" href="mailto:ivanova@gmail.com" target="_blank">ivanova@gmail.com</a>
+            <a
+              class="footer__link-text"
+              href="mailto:ivanova@gmail.com"
+              target="_blank"
+              >ivanova@gmail.com</a
+            >
           </div>
 
           <div class="footer__link">
             <p class="footer__link-name">Phone</p>
-            <a class="footer__link-text" href="tel:+79136677737">+ 7 913 66 77 737</a>
+            <a class="footer__link-text" href="tel:+79136677737"
+              >+ 7 913 66 77 737</a
+            >
           </div>
         </div>
         <div class="footer-icons">
-          <a class="footer__icon" href="https://ru-ru.facebook.com/" target="_blank"><img src="images/facebook.svg" alt="facebook"></a>
-          <a class="footer__icon" href="https://www.instagram.com/?hl=ru" target="_blank"><img src="images/instagram.svg" alt="instagram"></a>
-          <a class="footer__icon" href="https://vk.com/" target="_blank"><img src="images/vk.svg" alt="vk"></a>
-          <a class="footer__icon" href="https://www.pinterest.ru/" target="_blank"><img src="images/pinterest.svg" alt="pinterest"></a>
+          <a
+            class="footer__icon"
+            href="https://ru-ru.facebook.com/"
+            target="_blank"
+            ><img src="images/facebook.svg" alt="facebook"
+          /></a>
+          <a
+            class="footer__icon"
+            href="https://www.instagram.com/?hl=ru"
+            target="_blank"
+            ><img src="images/instagram.svg" alt="instagram"
+          /></a>
+          <a class="footer__icon" href="https://vk.com/" target="_blank"
+            ><img src="images/vk.svg" alt="vk"
+          /></a>
+          <a
+            class="footer__icon"
+            href="https://www.pinterest.ru/"
+            target="_blank"
+            ><img src="images/pinterest.svg" alt="pinterest"
+          /></a>
         </div>
       </div>
     </footer>
