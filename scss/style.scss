@@ -9,6 +9,7 @@ $text-color_opacity: #5f5f5f88;
 $text-color_light: #d1cece;
 
 //шаблоны
+
 %text-ligth {
   color: $text-color;
   font-size: 18px;
@@ -47,9 +48,18 @@ $text-color_light: #d1cece;
 }
 %text-price {
   font-size: 24px;
-line-height: 29px;
-font-weight: 400;
-color: #8eb574;
+  line-height: 29px;
+  font-weight: 400;
+  color: #8eb574;
+}
+
+@keyframes logo_light {
+  from {
+    transform: translateX(-30px) skewX(-45deg);
+  }
+  to {
+    transform: translateX(284px) skewX(-45deg);
+  }
 }
 
 *,
@@ -58,11 +68,6 @@ color: #8eb574;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-}
-
-#shadow-root {
-  display: block;
-  mask-mode: open;
 }
 
 body {
@@ -113,6 +118,8 @@ body {
     }
   }
   &-logo {
+    overflow: hidden;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,6 +128,16 @@ body {
     height: 76px;
     margin-right: 80px;
     background: linear-gradient(0deg, $main-color 37%, $main-color_light 88%);
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 30px;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.2);
+      animation: logo_light 1.4s infinite;
+    }
     @media screen and (max-width: 768px) {
       width: 200px;
       height: 60px;
@@ -133,7 +150,7 @@ body {
     &__text {
       font-size: 20px;
       text-transform: uppercase;
-    text-decoration: none;
+      text-decoration: none;
       color: #fff;
       line-height: 1.2;
       font-weight: 600;
@@ -186,7 +203,7 @@ body {
     border: none;
     background-color: transparent;
     z-index: 4;
-    &__line{
+    &__line {
       display: block;
       position: absolute;
       top: 15px;
@@ -195,29 +212,29 @@ body {
       height: 3px;
       width: 100%;
       background: rgb(24, 22, 22);
-      &:before, &::after{
-      content: '';
-      display: block;
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: rgb(24, 23, 23);
+      &:before,
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: rgb(24, 23, 23);
       }
-      &:before{
+      &:before {
         top: -8px;
       }
-      &::after{
+      &::after {
         bottom: -8px;
       }
     }
   }
 }
 
-
 /* трансформация верхней линии */
-.nav-btn__line{
-  &:before{
+.nav-btn__line {
+  &:before {
     transition-duration: 0.3s, 0.3s;
     transition-delay: 0.3s, 0s;
     transition-property: top, transform;
@@ -226,7 +243,7 @@ body {
 
 /* трансформация нижней линиb */
 .nav-btn__line {
-  &:after{
+  &:after {
     transition-duration: 0.3s, 0.3s;
     transition-delay: 0.3s, 0s;
     transition-property: bottom, transform;
@@ -234,20 +251,20 @@ body {
 }
 
 /* трансформация линий */
-.nav-btn__open{
-  & span{
+.nav-btn__open {
+  & span {
     background: none;
-    &::before{
+    &::before {
       top: 0;
       transform: rotate(-45deg);
       transition-delay: 0s, 0.3s;
     }
-    &::after{
+    &::after {
       bottom: 0;
       transform: rotate(45deg);
       transition-delay: 0s, 0.3s;
     }
-}
+  }
 }
 
 .nav-list {
@@ -287,9 +304,16 @@ body {
     &:first-child {
       display: none;
     }
+
     & > a {
+      display: inline-block;
       text-decoration: none;
+      transition: 1s;
       @extend %text-ligth;
+      &:hover {
+        transform: scale(1.5, 1.5);
+        border-bottom: 2px solid $main-color;
+      }
     }
     @media screen and (max-width: 768px), (max-width: 376px) {
       &:first-child {
@@ -373,7 +397,13 @@ body {
     }
   }
   &__link {
+    display: inline-block;
+    transition: 1.5s;
     @extend %text-link;
+    &:hover {
+      transform: translate(15px);
+      border-bottom: 4px solid $main-color;
+    }
     @media screen and (max-width: 376px) {
       color: $text-color_light;
       border-bottom: 3px solid $text-color_light;
@@ -391,6 +421,10 @@ body {
   max-width: 340px;
   max-height: 425px;
   position: relative;
+  transition: 1.5s;
+  &:hover {
+    transform: scale(1.1, 1.1);
+  }
   @media screen and (max-width: 768px) {
     max-width: 240px;
     max-height: 325px;
@@ -481,6 +515,10 @@ body {
       max-width: 100%;
       min-height: 400px;
       object-fit: cover;
+      transition: 1.5s;
+      &:hover {
+        transform: scale(1.1, 1.1);
+      }
     }
     &__name {
       padding: 15px 10px;
@@ -591,7 +629,13 @@ body {
     }
   }
   &-link > a {
+    display: inline-block;
+    transition: 1.5s;
     @extend %text-link;
+    &:hover {
+      transform: translate(15px);
+      border-bottom: 4px solid $main-color;
+    }
     @media screen and (max-width: 768px) {
       font-size: 14px;
     }
@@ -646,6 +690,10 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    transition: 1.5s;
+    &:hover {
+      transform: scale(1.1, 1.1);
+    }
   }
 
   &-text {
@@ -699,42 +747,51 @@ body {
   }
 
   &__link > a {
+    display: inline-block;
+    transition: 1.5s;
     @extend %text-link;
+    &:hover {
+      transform: translate(15px);
+      border-bottom: 4px solid $main-color;
+    }
   }
 }
 
-
 //block price
-.price-section{
+.price-section {
   background-color: $block-color_dark;
 }
 
-.price{
+.price {
   padding: 80px 0;
   &-header {
     display: flex;
     justify-content: center;
   }
-  &__title{
+  &__title {
     @extend %text-title;
   }
 
-  &-card{
+  &-card {
     max-width: 347px;
     @media screen and (max-width: 376px) {
       padding: 40px 0;
     }
   }
-  &-foto{
+  &-foto {
     max-width: 100%;
   }
-  &__img{
+  &__img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    transition: 1.5s;
+    &:hover {
+      transform: scale(1.1, 1.1);
+    }
   }
 
-  &-content{
+  &-content {
     padding: 50px 10px;
     display: grid;
     grid-gap: 10px;
@@ -748,9 +805,9 @@ body {
     }
   }
 
-  &-card{
+  &-card {
     grid-row: 2/3;
-    &__main{
+    &__main {
       grid-row: 1/3;
     }
     @media screen and (max-width: 376px) {
@@ -758,11 +815,11 @@ body {
     }
   }
 
-  &__name{
+  &__name {
     @extend %text-price;
     text-align: center;
     padding-top: 10px;
-    &>span{
+    & > span {
       font-size: 18px;
       @media screen and (max-width: 625px) {
         font-size: 16px;
@@ -782,7 +839,7 @@ body {
       padding: 0;
     }
   }
-  &__text{
+  &__text {
     @extend %text-usual;
     text-align: center;
     @media screen and (max-width: 768px) {
@@ -798,23 +855,23 @@ body {
 }
 
 //block footer
-.footer{
+.footer {
   padding: 80px 0;
 
   @media screen and (max-width: 376px) {
     padding: 40px 0;
   }
-  &-head{
+  &-head {
     display: flex;
     justify-content: center;
   }
-  &__title{
+  &__title {
     @extend %text-title;
     @media screen and (max-width: 376px) {
       font-size: 26px;
     }
   }
-  &-content{
+  &-content {
     max-width: 816px;
     margin: 0 auto;
     display: flex;
@@ -825,14 +882,14 @@ body {
       padding-top: 30px;
     }
   }
-  &__link{
+  &__link {
     display: flex;
     padding-top: 10px;
-    &-name{
+    &-name {
       @extend %text-ligth;
       opacity: 0.9;
       position: relative;
-      &::before{
+      &::before {
         content: url(../images/links.svg);
         width: 21px;
         height: 16px;
@@ -840,20 +897,20 @@ body {
         right: -29px;
       }
     }
-    &-text{
+    &-text {
       padding-left: 30px;
       @extend %text-ligth;
       opacity: 0.9;
       text-decoration: none;
     }
   }
-  &-icons{
+  &-icons {
     max-width: 272px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-around ;
+    justify-content: space-around;
   }
-  &__icon > img{
+  &__icon > img {
     width: 34px;
     height: 34px;
   }
